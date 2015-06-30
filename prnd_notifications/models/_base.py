@@ -13,6 +13,9 @@ class AbstractBaseNotification(models.Model):
     receiver = models.CharField(max_length=255, blank=True, null=True)
     content = models.CharField(max_length=255, blank=True, null=True)
 
+    status_code = models.PositiveSmallIntegerField(blank=True, null=True)
+    response_content = models.TextField(blank=True, null=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

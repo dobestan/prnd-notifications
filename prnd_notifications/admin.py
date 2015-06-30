@@ -10,6 +10,8 @@ class AbstractBaseNotificationAdmin(admin.ModelAdmin):
         'receiver',
         'content',
         'created_at',
+        'status_code',
+        'response_content',
     )
 
 
