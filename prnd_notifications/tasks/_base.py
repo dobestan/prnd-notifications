@@ -15,6 +15,9 @@ class BaseNotificationTask(Task):
             data=payload,
             headers=headers,
         )
+
+        self._update_instance_with_response(instance, response)
+
         return response
 
     def _get_instance(self, instance_id):
@@ -27,3 +30,8 @@ class BaseNotificationTask(Task):
     def _get_notification_payload(self, instance):
         payload = {}
         return payload
+
+    def _update_instance_with_response(self, instance, response):
+        instance.status_code = response.status_code
+        instance.response_content = response.content
+        instance.save()
