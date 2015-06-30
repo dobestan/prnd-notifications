@@ -6,6 +6,9 @@ from prnd_notifications.models import EmailNotification, SlackNotification, SmsN
 class AbstractBaseNotificationAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', )
     list_display = admin.ModelAdmin.list_display + (
+        'sender',
+        'receiver',
+        'content',
         'created_at',
     )
 
