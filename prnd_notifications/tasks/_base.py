@@ -3,9 +3,22 @@ import requests
 
 
 class BaseNotificationTask(Task):
+    """ Abstract implementation of async notification task.
+
+    Example:
+        Suppose that ``SomeNotificationTask`` inherits from ``BaseNotificationTask`` .
+        ::
+
+            task = SomeNotificationTask()
+
+            task.delay(some_instance_id)    # Async task
+            task.run(some_instance_id)      # Sync task
+    """
     abstract = True
 
     def run(self, instance_id):
+        """The body of the task executed by workers.
+        """
         instance = self._get_instance(instance_id)
         payload = self._get_notification_payload(instance)
         headers = self._get_notification_headers(instance)
