@@ -58,3 +58,6 @@ docs/_build/
 target/
 
 migrations/
+
+# Autoenv
+.env
