@@ -6,7 +6,11 @@ import os
 import shlex
 
 import sphinx_rtd_theme
+from django.conf import settings
 
+
+sys.path.insert(0, os.path.abspath(".."))
+settings.configure()
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -38,6 +42,8 @@ html_theme = 'sphinx_rtd_theme'
 
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
+
+html_favicon = '_static/_image/favicon.ico'
 
 htmlhelp_basename = 'prnd-notificationsdoc'
 
