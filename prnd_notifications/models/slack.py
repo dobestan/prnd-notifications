@@ -20,3 +20,7 @@ def post_save_slack_notification(sender, instance, created, **kwrags):
         task.delay(instance.id)
 
 post_save.connect(post_save_slack_notification, sender=SlackNotification)
+
+
+def send_slack(*args, **kwargs):
+    return SlackNotification.objects.create(*args, **kwargs)

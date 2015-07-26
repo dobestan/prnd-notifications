@@ -20,3 +20,7 @@ def post_save_sms_notification(sender, instance, created, **kwrags):
         task.delay(instance.id)
 
 post_save.connect(post_save_sms_notification, sender=SmsNotification)
+
+
+def send_sms(*args, **kwargs):
+    return SmsNotification.objects.create(*args, **kwargs)

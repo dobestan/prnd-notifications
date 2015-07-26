@@ -1,3 +1,2 @@
-from .models.slack import SlackNotification
-from .models.sms import SmsNotification
-from .models.email import EmailNotification
+from .models.slack import send_slack
+from .models.sms import send_sms
