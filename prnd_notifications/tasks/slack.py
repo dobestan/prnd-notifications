@@ -1,8 +1,6 @@
 from prnd_notifications.models.slack import SlackNotification
 from ._base import BaseNotificationTask
 
-import json
-
 
 class SlackNotificationTask(BaseNotificationTask):
     """ Implementation of async Slack notification task.
@@ -17,6 +15,8 @@ class SlackNotificationTask(BaseNotificationTask):
     base_url = "https://hooks.slack.com/services/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"
 
     def _get_notification_payload(self, instance):
+        import json
+
         payload = {
             "username": instance.sender,
             "channel": instance.receiver,
