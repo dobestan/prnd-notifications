@@ -1,10 +1,19 @@
+from django.conf import settings
+
 from prnd_notifications.models.sms import SmsNotification
 from ._base import BaseNotificationTask
 
-import json
-
 
 class SmsNotificationTask(BaseNotificationTask):
+    """ Implementation of async SMS notification task.
+
+    References:
+        - `API STORE - SMS API Documentation`_
+
+    .. _API STORE - SMS API Documentation:
+        http://www.apistore.co.kr/api/apiView.do?service_seq=151
+    """
+
     model = SmsNotification
     base_url = "http://api.openapi.io/ppurio/1/message/sms/prnd"
 
