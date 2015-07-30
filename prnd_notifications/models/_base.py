@@ -11,6 +11,8 @@ class AbstractBaseNotification(models.Model):
 
     sender = models.CharField(max_length=255, blank=True, null=True)
     receiver = models.CharField(max_length=255, blank=True, null=True)
+
+    title = models.CharField(max_length=255, blank=True, null=True)
     content = models.TextField(blank=True, null=True)
 
     status_code = models.PositiveSmallIntegerField(blank=True, null=True)

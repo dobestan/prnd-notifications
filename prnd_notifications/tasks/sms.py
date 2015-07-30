@@ -26,9 +26,13 @@ class SmsNotificationTask(BaseNotificationTask):
 
     def _get_notification_payload(self, instance):
         payload = {
+            # Required
             "send_phone": instance.sender, 
             "dest_phone": instance.receiver, 
             "msg_body": instance.content, 
+
+            # Optional
+            "subject": instance.title, 
         }
 
         return payload

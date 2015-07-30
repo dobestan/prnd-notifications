@@ -8,6 +8,7 @@ class AbstractBaseNotificationAdmin(admin.ModelAdmin):
     list_display = admin.ModelAdmin.list_display + (
         'sender',
         'receiver',
+        'title',
         'content',
         'created_at',
         'status_code',
